@@ -290,4 +290,10 @@ public class Utility1 {
 		System.out.println("Total triplet Possible => " + totalCount);
 
 	}
+
+	public static void findEuclidian(int x, int y) {
+		
+		double distance=Math.sqrt(x*x + y*y);
+		System.out.println("The euclidian distanmce is : --- " +distance);
+	}
 }
