@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.util.Random;
 import java.util.Scanner;
 
-
 public class Utility1 {
 	static Scanner sc = new Scanner(System.in);
 	static int num;
@@ -255,5 +254,40 @@ public class Utility1 {
 		return finalString;
 	}
 
+	public static void power_check(int limit) {
 
+		for (int i = 0; i <= limit; i++) {
+			int value = (int) Math.pow(2, i);
+			System.out.println(value);
+		}
+
+	}
+
+	public static void triplet_func(int range) {
+		int count = 0, add = 0, k = 0;
+		int totalCount = 0;
+		int jthvalue = 0;
+		int[] userNumber = new int[range];
+		System.out.println("Enter value.. ");
+		for (int i = 0; i < range; i++)
+			userNumber[i] = getInt();
+
+		for (int i = 0; i < userNumber.length; i++) {
+			for (int j = i + 1; j < userNumber.length; j++) {
+
+				add = userNumber[i] + userNumber[j];
+				jthvalue = userNumber[j];
+				if (j + 1 < userNumber.length) {
+					if (add + userNumber[j + 1] == 0) {
+						System.out.println(userNumber[i] + " " + jthvalue + " " + userNumber[j + 1]);
+						System.out.println("--------");
+						totalCount++;
+					}
+				}
+			}
+
+		}
+		System.out.println("Total triplet Possible => " + totalCount);
+
+	}
 }
