@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Random;
 import java.util.Scanner;
 
+
 public class Utility1 {
 	static Scanner sc = new Scanner(System.in);
 	static int num;
@@ -17,6 +18,7 @@ public class Utility1 {
 	static int wins = 0;
 	static String[] args;
 	static int trials;
+	static String string;
 
 	// constructor to initialize bufferedReader
 	public Utility1() {
@@ -28,11 +30,13 @@ public class Utility1 {
 		return num;
 
 	}
+
 	public static int getfloat() {
 		num = sc.nextInt();
 		return num;
 
 	}
+
 	public static void check() {
 
 		if (num > 0) {
@@ -203,8 +207,7 @@ public class Utility1 {
 
 	}
 
-	public static void primefact_check() 
-	{
+	public static void primefact_check() {
 		for (int i = 2; i < num; i++) {
 			while (num % i == 0) {
 				System.out.println(i + " ");
@@ -217,27 +220,40 @@ public class Utility1 {
 		}
 
 	}
-public static void harmonic_cal(float n) {
-		
+
+	public static void harmonic_cal(float n) {
+
 		float i;
 		float sum = 0;
 
 		for (i = 1; i <= n; i++) {
-				sum += 1 / i;
-			}
-			System.out.println(sum);
-		} 
+			sum += 1 / i;
+		}
+		System.out.println(sum);
+	}
+
 	public static float har_check(float n) {
 		// TODO Auto-generated method stub
-		if(n==0)
-		{
+		if (n == 0) {
 			System.out.println("Enter value greater than 0....");
-			n=new Scanner(System.in).nextFloat();
+			n = new Scanner(System.in).nextFloat();
 		}
-		if(n>0)
-		{
+		if (n > 0) {
 			return n;
 		}
 		return har_check(n);
 	}
+
+	public static String getString() {
+		string = sc.nextLine();
+		return string;
+
+	}
+
+	public static String replace(String string, String str, String replacewith) {
+		String finalString = string.replace(str, replacewith);
+		return finalString;
+	}
+
+
 }
