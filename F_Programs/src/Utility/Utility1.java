@@ -18,6 +18,9 @@ public class Utility1 {
 	static String[] args;
 	static int trials;
 	static String string;
+	static long endtimer = 0;
+	static long starttimer = 0;
+	static long elapsedtime;
 
 	// constructor to initialize bufferedReader
 	public Utility1() {
@@ -292,8 +295,34 @@ public class Utility1 {
 	}
 
 	public static void findEuclidian(int x, int y) {
-		
-		double distance=Math.sqrt(x*x + y*y);
-		System.out.println("The euclidian distanmce is : --- " +distance);
+
+		double distance = Math.sqrt(x * x + y * y);
+		System.out.println("The euclidian distanmce is : --- " + distance);
 	}
+
+	public static void getElapsedtime(int n) {
+
+		long starttimer = 0;
+		long endtimer = 0;
+		long elapsedtime;
+		if (n == 1) {
+			System.out.println("Press 1 to start ....");
+			starttimer = System.currentTimeMillis();
+			System.out.println("Start time is :  " + starttimer);
+
+		}
+		System.out.println("Press 2 to get end time : ");
+		n = getInt();
+
+		if (n == 2) {
+			System.out.println("Press 2 to end .... ");
+			endtimer = System.currentTimeMillis();
+			System.out.println("end time is :  " + endtimer);
+			elapsedtime = (endtimer - starttimer) / 1000;
+			System.out.println(" \n Elapsed time is : " + elapsedtime);
+
+		}
+
+	}
+
 }
