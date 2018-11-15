@@ -3,6 +3,7 @@ package Utility;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -21,6 +22,10 @@ public class Utility1 {
 	static long endtimer = 0;
 	static long starttimer = 0;
 	static long elapsedtime;
+	static final int EMPTY = 0;
+	static final int USER = 1;
+	static final int COMPUTER = 2;
+	static final int NONE = 1;
 
 	// constructor to initialize bufferedReader
 	public Utility1() {
@@ -325,4 +330,258 @@ public class Utility1 {
 
 	}
 
+	public static void quadtraticEuation(int a, int b, int c) {
+		double delta = b * b - 4 * a * c;
+		System.out.println(delta);
+		double r1 = (-b + Math.sqrt(delta)) / (2 * a);
+		System.out.println("Root of x1 " + r1);
+		double r2 = (-b - Math.sqrt(delta)) / (2 * a);
+		System.out.println("Root of x1 " + r2);
+
+	}
+
+	public static void windchillFunc(double t, double v) {
+		if (t > 50 || (v > 120 || v < 3)) {
+			System.out.println("Invalid entry...");
+			System.out.println("Read conditions.\n");
+			System.out.println("Condition : \n1. t value is less than 50 \n2.v is greater than 3 and less than 120 ");
+			System.out.println("Enter the value of using above condition : \n ");
+			t = Utility1.getInt();
+			v = Utility1.getInt();
+			windchillFunc(t, v);
+		}
+		if (t < 50 || (v < 120 || v < 3)) {
+			double w = 35.74 + 0.6215 * t + (0.4275 * t - 35.75) * Math.pow(v, 0.16);
+			System.out.println("Result is : " + w);
+		}
+
+	}
+
+	public static void primecheck() {
+		int limit = 1000;
+		int i, j;
+		boolean status = true;
+		for (i = 0; i <= limit; i++) {
+			for (j = 2; j < i; j++) {
+				if (i % j == 0) {
+					status = false;
+					break;
+				} else {
+					status = true;
+				}
+			}
+			if (status) {
+				System.out.println(i);
+			}
+		}
+
+	}
+
+	public static int[] getPrime() {
+		int[] array = new int[1000];
+		boolean isPrime = true;
+		int count = 0;
+		for (int i = 0; i <= 1000; i++) {
+			if (i == 0 || i == 1)
+				continue;
+			isPrime = true;
+			for (int j = 2; j <= i / 2; j++) {
+
+				if (i % j == 0)
+					isPrime = false;
+
+			}
+			if (isPrime)
+				array[count++] = i;
+		}
+		return array;
+	}
+
+	public static void getPrimeAnagram() {
+		int count1 = 0;
+
+	}
+
+	public static boolean checkAnagram(String str1, String str2) {
+
+		String str4 = str1.replaceAll("\\s", "");
+		String str5 = str2.replaceAll("\\s", "");
+
+		if (str4.length() != str5.length()) {
+			return false;
+		}
+		String str6 = str4.toLowerCase();
+		String str7 = str5.toLowerCase();
+
+		char[] str1array = str6.toCharArray();
+		Arrays.sort(str1array);
+		char[] str2array = str7.toCharArray();
+		Arrays.sort(str2array);
+
+		return Arrays.equals(str1array, str2array);
+
+	}
+
+	public static void getPalindrom() {
+
+		System.out.println("Enter a number ");
+		int n = Utility1.getInt();
+		int temp = n;
+		int r, sum = 0;
+		while (n > 0) {
+			r = n % 10;
+			sum = (sum * 10) + r;
+			n = n / 10;
+		}
+		if (temp == sum) {
+			System.out.println("palindrome");
+		} else {
+			System.out.println("Not a palindrome");
+		}
+
+	}
+
+	public static void isPrimePalindrome() {
+		int[] storePrimeNumbers = new int[1000];
+		int[] storePalindrome = new int[1000];
+
+		boolean isPrime = true;
+		int count = 0, count1 = 0;
+		for (int i = 0; i < 1000; i++) {
+			if (i == 0 || i == 1)
+				continue;
+			isPrime = true;
+			for (int j = 2; j < i / 2; j++) {
+				if (i % j == 0) {
+					isPrime = false;
+
+				}
+			}
+			if (isPrime) {
+				storePrimeNumbers[count++] = i;
+			}
+			if (isPrime) {
+				int num = i, remainder = 0;
+				int reverse = 0;
+				while (num > 0) {
+					remainder = num % 10;
+					num = num / 10;
+					reverse = reverse * 10 + remainder;
+				}
+				// comparing reverse with i value
+				if (reverse == i)
+					storePalindrome[count1++] = i;
+			}
+		}
+		System.out.println("Prime Numbers that are Palindrome are as follows");
+
+		for (int i = 0; i < storePalindrome.length; i++) {
+			if (storePalindrome[i] > 0)
+				System.out.println(storePalindrome[i]);
+
+		}
+	}
+
+	public static void isAnagram() {
+
+		int count = 0;
+		int temp;
+		int[] primeArray = Utility1.getPrime();
+		for (int i = 0; i < primeArray.length; i++) {
+			if (primeArray[i] != 0)
+				count++;
+		}
+		int[] x = new int[count];
+		for (int i = 0; i < x.length; i++) {
+			if (primeArray[i] != 0) {
+				x[i] = primeArray[i];
+			}
+			String[] array1 = new String[x.length];
+			String[] Comparearray1 = new String[x.length];
+			for (i = 0; i < x.length; i++) {
+				array1[i] = Integer.toString(x[i]);
+			}
+			String s3 = "";
+			for (int n = 0; n < array1.length; n++) {
+				String s1 = array1[n];
+				char[] ch1 = new char[s1.length()];
+				for (i = 0; i < s1.length(); i++) {
+					char ch = s1.charAt(i);
+					ch1[i] = ch;
+				}
+
+				for (int j = 0; j < ch1.length; j++) {
+					for (int k = j + 1; k < ch1.length; k++) {
+						if (ch1[j] > ch1[k]) {
+							temp = ch1[k];
+							ch1[j] = ch1[k];
+							ch1[k] = (char) temp;
+
+						}
+					}
+				}
+				s1 = "";
+				for (i = 0; i < ch1.length; i++) {
+					s1 = s1 + ch1[i];
+				}
+				Comparearray1[n] = s1;
+
+			}
+
+		}
+	}
+
+	public static void binarySearch(int[] barray, int a) {
+		Arrays.sort(barray);
+
+		int li = 0;
+		int hi = barray.length - 1;
+		int mi = li + hi / 2;
+		while (li <= mi) {
+			if (barray[mi] == a) {
+
+				System.out.println("Element is ata " + mi + " index position");
+				break;
+			} else if (barray[mi] < a) {
+				li = mi + 1;
+			} else {
+				hi = mi - 1;
+			}
+			mi = (li + hi) / 2;
+		}
+		for (int j = 0; j < barray.length; j++) {
+			if (a != barray[j]) {
+				System.out.println("Unsuccesfull ... ! Not Found");
+				break;
+			}
+		}
+
+	}
+
+	public static void binarySearchString(String[] strarr, String a ) {
+		int li = 0;
+		int hi = strarr.length-1;
+		int mi = li + hi / 2;
+		
+		while (li < hi ) 
+		{
+			if (strarr[mi].compareTo(a) == 0) {
+				System.out.println("Element is ata " + mi + " index position");
+				break;
+			} else if (strarr[mi].compareTo(a) < 0) {
+				li = mi + 1;
+			} else {
+				hi = mi - 1;
+			}
+			mi = (li + hi) / 2;
+		}
+		for(int i=0;i<strarr.length;i++)
+		{
+			if(a!=strarr[i])
+			{
+				System.out.println("Not Found...");
+				break;
+			}
+		}
+	}
 }
