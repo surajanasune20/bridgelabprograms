@@ -1,6 +1,7 @@
 package Utility;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
@@ -252,7 +253,7 @@ public class Utility1 {
 	}
 
 	public static String getString() {
-		string = sc.nextLine();
+		string = sc.next();
 		return string;
 
 	}
@@ -531,57 +532,159 @@ public class Utility1 {
 		}
 	}
 
-	public static void binarySearch(int[] barray, int a) {
-		Arrays.sort(barray);
-
-		int li = 0;
-		int hi = barray.length - 1;
-		int mi = li + hi / 2;
-		while (li <= mi) {
-			if (barray[mi] == a) {
-
-				System.out.println("Element is ata " + mi + " index position");
-				break;
-			} else if (barray[mi] < a) {
-				li = mi + 1;
-			} else {
-				hi = mi - 1;
-			}
-			mi = (li + hi) / 2;
+	public static int binarSearch(int[] arr, int m) {
+		Arrays.sort(arr);
+		System.out.println("Before Search... >> Sorted array ");
+		for(int j=0;j<arr.length;j++)
+		{
+		System.out.println(arr[j]+ " ");
 		}
-		for (int j = 0; j < barray.length; j++) {
-			if (a != barray[j]) {
-				System.out.println("Unsuccesfull ... ! Not Found");
-				break;
+		
+		int first=0;
+		int last=arr.length;
+		int mid=0;
+		while(first <=last)
+		{
+			mid=(first+last)/2;
+			
+			if(arr[mid]==m)
+			{
+				return mid;
+			}
+			else if(arr[mid] < m)
+			{
+				first=mid+1;
+			}
+			else
+			{
+				last=mid-1;
 			}
 		}
-
+		
+		System.out.println("Unsussfull .... >> Not Found");
+		return 1;
+		
+		
 	}
 
-	public static void binarySearchString(String[] strarr, String a ) {
+
+	public static int binarySearchString(String[] strarr, String a) {
 		int li = 0;
-		int hi = strarr.length-1;
-		int mi = li + hi / 2;
-		
-		while (li < hi ) 
-		{
+		int hi = strarr.length - 1;
+		int mi = 0;
+
+		while (li <= hi) {
+			mi = (li + hi) / 2;
 			if (strarr[mi].compareTo(a) == 0) {
-				System.out.println("Element is ata " + mi + " index position");
-				break;
+				return mi;
 			} else if (strarr[mi].compareTo(a) < 0) {
 				li = mi + 1;
-			} else {
+			}
+
+			else {
 				hi = mi - 1;
 			}
-			mi = (li + hi) / 2;
 		}
-		for(int i=0;i<strarr.length;i++)
-		{
-			if(a!=strarr[i])
-			{
-				System.out.println("Not Found...");
-				break;
+
+		System.out.println("element not found");
+		return 1;
+
+	}
+
+	public static void insertionSort(int[] arr) {
+		int temp, i, j;
+		for (i = 1; i < arr.length; i++) {
+			temp = arr[i];
+			j = i;
+
+			while (j > 0 && arr[j - 1] > temp) {
+				arr[j] = arr[j - 1];
+				j = j - 1;
+			}
+			arr[j] = temp;
+
+		}
+		System.out.println();
+		System.out.println("After Insertionsort.....  \n ");
+		for (i = 0; i < arr.length; i++) {
+			if (i > 0) {
+				System.out.print(", ");
+			}
+			System.out.print(arr[i]);
+		}
+
+	}
+
+	public static String[] insertionSortString(String[] strarr, int a) {
+
+		String temp = "";
+		for (int i = 0; i < a; i++) {
+			for (int j = i + 1; j < a; j++) {
+				if (strarr[i].compareToIgnoreCase(strarr[j]) > 0) {
+					temp = strarr[i];
+					strarr[i] = strarr[j];
+					strarr[j] = temp;
+				}
 			}
 		}
+
+		return strarr;
 	}
+
+	public static void bubblesort_for_int(int[] intarray) {
+		int temp;
+
+		for (int i = 0; i < intarray.length; i++) {
+			for (int j = i + 1; j < intarray.length; j++) {
+				if (intarray[i] > intarray[j]) {
+					temp = intarray[i];
+					intarray[i] = intarray[j];
+					intarray[j] = temp;
+
+				}
+			}
+		}
+		for (int i = 0; i < intarray.length; i++) {
+			System.out.println(intarray[i]);
+		}
+
+	}
+
+	public static String[] bubblesort_string(String[] strarray, int a) {
+		String temp;
+
+		for (int i = 0; i < a; i++) {
+			for (int j = i + 1; j < a; j++) {
+				if (strarray[i].compareTo(strarray[j]) > 0) {
+					temp = strarray[i];
+					strarray[i] = strarray[j];
+					strarray[j] = temp;
+
+				}
+			}
+
+		}
+		return strarray;
+
+	}
+
+	/*public static int[] readFiles(String file) throws Exception {
+		File f = new File(file);
+		Scanner sc = new Scanner(f);
+		int counter = 0;
+		while (sc.hasNextInt()) {
+			counter++;
+			sc.nextInt();
+		}
+		int[] filearray = new int[counter];
+		Scanner sc1 = new Scanner(f);
+		for (int i = 0; i < filearray.length; i++) {
+			filearray[i] = sc1.nextInt();
+		}
+		int a = 7;
+		 binarySearch(filearray, a);
+
+		return filearray;
+	}
+*/
 }

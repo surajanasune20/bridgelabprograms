@@ -2,10 +2,8 @@ package Alogithm_Pg;
 
 import Utility.Utility1;
 
-public class BinarySearch_String {
+public class Insertion_Sor_For_String {
 	public static void main(String[] args) {
-		
-		
 		long starttime=System.nanoTime();
 
 		System.out.println("Enter the number of elements : ");
@@ -17,7 +15,7 @@ public class BinarySearch_String {
 			strarr[i]=Utility1.getString();
 		}
 		
-		System.out.println("Before search :  .. ");
+		System.out.println("Before srot  :  ..  \n ");
 		for (int i = 0; i < strarr.length; i++) {
 	         if(i >  0)
 	         {
@@ -25,20 +23,15 @@ public class BinarySearch_String {
 	         }
 	         System.out.print(strarr[i]);
 	      }
-		
-		System.out.println("\n  Enter the elements you want to search... ");
-		String a=Utility1.getString();
-		int mi=Utility1.binarySearchString(strarr,a);		
-		if(mi!=1)
-		System.out.println("Element is ata " + mi + " index position");
-
-		
+		int a = strarr.length;
+		// String sortedArray=sort_sub(strarr,strarr.length);
+		String[] sortedArray = Utility1.insertionSortString(strarr, a);
+		for (int i = 0; i < sortedArray.length; i++) {
+			System.out.println(sortedArray[i]);
+		}
 		long endtime=System.nanoTime();
 		long duration=(endtime-starttime);
 		System.out.println("The elapsed time of method is : > > > " + duration );
-		
-		
+	
 	}
-
-
 }
