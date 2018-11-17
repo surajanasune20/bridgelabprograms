@@ -1,17 +1,18 @@
-package Alogithm_Pg;
+package File_sort;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
 
+
 import Utility.Utility1;
 
-public class FileBinarySearch {
+public class FileBinarySearch_Int {
 	public static void main(String[] args) throws Exception {
 
 		int[] data = readFiles("abc.txt");
-		System.out.println(Arrays.toString(data));
+	
 		
 	}
 
@@ -28,14 +29,26 @@ public class FileBinarySearch {
 		for (int i = 0; i < filearray.length; i++) {
 			filearray[i] = sc1.nextInt();
 		}
+		
+		System.out.println("Before Sort..");
+		for(int k=0;k<filearray.length;k++)
+		{
+			System.out.println(filearray[k]);
+		}
 		sortArray(filearray);
-
 		return filearray;
 	}
 
 	public static void sortArray(int[] filearray) {
 
 		Arrays.sort(filearray);
+		System.out.println("After sorting > > > " );
+		for(int k=0;k<filearray.length;k++)
+		{
+			System.out.println(filearray[k]);
+		}
+		System.out.println("The value in comma separated... ");
+		System.out.println(Arrays.toString(filearray));
 		System.out.println("Enter the key you want to search....!");
 		int key = Utility1.getInt();
 		int mid=binarySearchfile(filearray, key);

@@ -11,7 +11,6 @@ import java.util.Scanner;
 public class Utility1 {
 	static Scanner sc = new Scanner(System.in);
 	static int num;
-	static BufferedReader br;
 	static int $Money;
 	static int $Goal;
 	static int noOfTimes;
@@ -29,12 +28,16 @@ public class Utility1 {
 	static final int NONE = 1;
 
 	// constructor to initialize bufferedReader
-	public Utility1() {
-		br = new BufferedReader(new InputStreamReader(System.in));
-	}
+	
 
 	public static int getInt() {
 		num = sc.nextInt();
+		return num;
+
+	}
+	public static double getDouble() {
+		double num;
+		num = sc.nextDouble();
 		return num;
 
 	}
@@ -85,10 +88,10 @@ public class Utility1 {
 
 	}
 
-	public static int inputInteger() {
+	/*public static int inputInteger() {
 		try {
 			try {
-				return Integer.parseInt(br.readLine());
+				return Integer.parseInt(br1.readLine());
 			} catch (NumberFormatException nfe) {
 				System.out.println(nfe.getMessage());
 			}
@@ -96,7 +99,7 @@ public class Utility1 {
 			System.out.println(ioe.getMessage());
 		}
 		return 0;
-	}
+	}*/
 
 	public static void Array_display(int[][] a, int m, int n) {
 		System.out.println();
@@ -535,38 +538,29 @@ public class Utility1 {
 	public static int binarSearch(int[] arr, int m) {
 		Arrays.sort(arr);
 		System.out.println("Before Search... >> Sorted array ");
-		for(int j=0;j<arr.length;j++)
-		{
-		System.out.println(arr[j]+ " ");
+		for (int j = 0; j < arr.length; j++) {
+			System.out.println(arr[j] + " ");
 		}
-		
-		int first=0;
-		int last=arr.length;
-		int mid=0;
-		while(first <=last)
-		{
-			mid=(first+last)/2;
-			
-			if(arr[mid]==m)
-			{
+
+		int first = 0;
+		int last = arr.length;
+		int mid = 0;
+		while (first <= last) {
+			mid = (first + last) / 2;
+
+			if (arr[mid] == m) {
 				return mid;
-			}
-			else if(arr[mid] < m)
-			{
-				first=mid+1;
-			}
-			else
-			{
-				last=mid-1;
+			} else if (arr[mid] < m) {
+				first = mid + 1;
+			} else {
+				last = mid - 1;
 			}
 		}
-		
+
 		System.out.println("Unsussfull .... >> Not Found");
 		return 1;
-		
-		
-	}
 
+	}
 
 	public static int binarySearchString(String[] strarr, String a) {
 		int li = 0;
@@ -665,26 +659,67 @@ public class Utility1 {
 
 		}
 		return strarray;
-
 	}
 
-	/*public static int[] readFiles(String file) throws Exception {
-		File f = new File(file);
-		Scanner sc = new Scanner(f);
-		int counter = 0;
-		while (sc.hasNextInt()) {
-			counter++;
-			sc.nextInt();
-		}
-		int[] filearray = new int[counter];
-		Scanner sc1 = new Scanner(f);
-		for (int i = 0; i < filearray.length; i++) {
-			filearray[i] = sc1.nextInt();
-		}
-		int a = 7;
-		 binarySearch(filearray, a);
+	public static int[] sort(int[] filearray) {
 
+		int temp;
+		int[] a = { 1, 2, 3, 5, 4, 6 };
+		for (int i = 0; i < a.length; i++) {
+
+			for (int j = i + 1; j < a.length; j++) {
+				if (a[i] > a[j]) {
+					temp = a[i];
+					a[i] = a[j];
+					a[j] = temp;
+				}
+			}
+		}
+		for (int k = 0; k < a.length; k++) {
+			System.out.println(" " + a[k]);
+		}
 		return filearray;
 	}
-*/
+
+	public static void bubble_sort_file(int[] filearray) {
+		int temp;
+
+		for (int i = 0; i < filearray.length; i++) {
+			for (int j = i + 1; j < filearray.length; j++) {
+				if (filearray[i] > filearray[j]) {
+					temp = filearray[i];
+					filearray[i] = filearray[j];
+					filearray[j] = temp;
+
+				}
+			}
+		}
+		for (int i = 0; i < filearray.length; i++) {
+			System.out.println(filearray[i]);
+		}
+
+	}
+
+	public static int dayofweek(int day, int month, int year) {
+		
+		int y0 = year - (14 - month) / 12;
+        int x = y0 + y0/4 - y0/100 +y0/400;
+        int m0 = month + 12 * ((14 - month) / 12) - 2;
+        int d0 = (day + x + 31 * m0 / 12) % 7; 
+		return d0;
+	}
+
+	public static double getFaranite(double tempreture) {
+
+		 tempreture = (tempreture * 9/5)+32;
+		return tempreture;
+		 
+	}
+
+	public static double getCelcius(double tempreture) {
+		tempreture = (tempreture -32)*5/9;
+		return tempreture;
+	}
+
+	
 }
