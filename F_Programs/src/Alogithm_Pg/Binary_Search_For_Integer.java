@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import Utility.Utility1;
 
-public class Binary_Searchnew {
+public class Binary_Search_For_Integer {
 	public static void main(String[] args) {
 		System.out.println("Enter how many  elements ");
 		int n1 = Utility1.getInt();
@@ -28,7 +28,6 @@ public class Binary_Searchnew {
 
 	public static int binarSearch(int[] arr, int m) {
 		Arrays.sort(arr);
-		System.out.println("Before Search... >> Sorted array ");
 		for(int j=0;j<arr.length;j++)
 		{
 		System.out.println(arr[j]+ " ");

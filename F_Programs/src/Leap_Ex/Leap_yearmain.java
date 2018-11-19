@@ -6,7 +6,7 @@ public class Leap_yearmain {
 	public static void main(String[] args) {
 
 		System.out.println("Enter the year num that you want to check.... ! ");
-		int num = Utility1.getInt();
-		Utility1.check_Leap();
+		int year = Utility1.getInt();
+		Utility1.isLeepYear(year);
 	}
 }
