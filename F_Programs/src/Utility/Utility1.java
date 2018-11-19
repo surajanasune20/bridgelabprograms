@@ -127,6 +127,10 @@ public class Utility1 {
 		return a;
 	}
 
+	private static int inputInteger() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	public static int countDigit(long year) {
 		int count = 0;
 		while (year != 0) {
