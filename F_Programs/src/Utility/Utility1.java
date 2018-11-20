@@ -144,29 +144,19 @@ public class Utility1 {
 		}
 	}
 
-	public static void CoupenNoGenerator(int n) {
-		// Assigning array size as distinctCoupan i.e user value
+	public static void Z(int n) {
 		int[] distinctArray = new int[n];
-		// To check random generated is distinct or not
 		boolean isCollectedArray = true;
-		// To keep record of Number of Coupans we have generated
 		int coupenCount = 0;
-		// To count Number of random number generated
 		int randomNoCount = 0, k = 0;
-		// creating object of Random class to generate random numbers
+	
 		Random r = new Random();
-		/**
-		 * loop will iterate till coupanCount is less than user value i.e
-		 * distinctCoupan, because coupanCount is starting with zero
-		 */
+		
 		while (coupenCount < n) {
 			isCollectedArray = true;
 			int randomNo = r.nextInt();
 			randomNoCount++;
-			/*
-			 * comparing random number generated with each value in array, if Random number
-			 * is distinct then we store in distinctCounArray, otherwise not
-			 */
+			
 			for (int i = 0; i < distinctArray.length; i++) {
 				// comparison of random number in all array value or
 				// checking is random no is less than zero
@@ -259,7 +249,7 @@ public class Utility1 {
 
 	/****************** HARMONIC NUMBER **************************/
 	public static String getString() {
-		string = sc.next();
+		string = sc.nextLine();
 		return string;
 
 	}
@@ -313,7 +303,8 @@ public class Utility1 {
 				jthvalue = userNumber[j];
 				if (j + 1 < userNumber.length) {
 					// pointing value in array next to j index
-					if (add + userNumber[j + 1] == 0) {
+					if (add + userNumber[j + 1] == 0) 
+					{
 						System.out.println(userNumber[i] + " " + jthvalue + " " + userNumber[j + 1]);
 						System.out.println("--------");
 						totalCount++;
@@ -374,18 +365,18 @@ public class Utility1 {
 	public static void windchillFunc(double t, double v) {
 		// checking if user value is less than specified range
 		if (t > 50 || (v > 120 || v < 3)) {
-			System.out.println("Invalid entry...");
+			/*System.out.println("Invalid entry...");
 			System.out.println("Read conditions.\n");
 			System.out.println("Condition : \n1. t value is less than 50 \n2.v is greater than 3 and less than 120 ");
 			System.out.println("Enter the value of using above condition : \n ");
-			t = Utility1.getInt();
+			*/t = Utility1.getInt();
 			v = Utility1.getInt();
 			windchillFunc(t, v);// using recursion
 		}
-		if (t < 50 || (v < 120 || v < 3)) {
+		if (t < 50 || (v >=3 || v <=120)) {
 			// find windChill using formula
 			double w = 35.74 + 0.6215 * t + (0.4275 * t - 35.75) * Math.pow(v, 0.16);
-			System.out.println("Result is : " + w);
+			System.out.println(w);
 		}
 
 	}
@@ -394,7 +385,9 @@ public class Utility1 {
 
 		for (int i = 0; i < limit; i++) {
 			// set status of isPrime=true
+
 			boolean isPrime = true;
+			
 			for (int j = 2; j < i; j++) {
 				// check condition
 				if (i % j == 0) {
@@ -894,7 +887,6 @@ public class Utility1 {
 	public static void getProbability(int n) {
 		Random r = new Random();
 		float heads = 0;
-
 		// loop will iterate till user value
 		for (int i = 1; i <= n; i++) {
 

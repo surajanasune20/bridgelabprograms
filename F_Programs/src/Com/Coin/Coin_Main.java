@@ -9,7 +9,6 @@ public class Coin_Main {
 		//get an input integer using getInt function from utility class
 		int n = Utility1.getInt();
 		//call method from utility class
-		//get an input integer using getInt function from utility class
 		Utility1.getProbability(n);         
 	}
 

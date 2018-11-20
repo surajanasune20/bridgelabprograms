@@ -6,6 +6,7 @@ import Utility.Utility1;
 
 public class Binary_Search_For_Integer {
 	public static void main(String[] args) {
+		System.out.println();
 		System.out.println("Enter how many  elements ");
 		int n1 = Utility1.getInt();
 		int arr[] = new int[n1];

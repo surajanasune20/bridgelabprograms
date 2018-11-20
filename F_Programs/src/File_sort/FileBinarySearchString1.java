@@ -1,6 +1,5 @@
 package File_sort;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -35,7 +34,7 @@ public class FileBinarySearchString1 {
 		}
 	System.out.println();
 		
-			sortArray(filearray);
+		sortArray(filearray);
 		return filearray;
 	}
 
@@ -43,7 +42,6 @@ public class FileBinarySearchString1 {
 
 		Arrays.sort(filearray);
 		System.out.println("After sorting > > >  \n ");
-		
 		System.out.print(Arrays.toString(filearray));
 		System.out.println(" \n ");
 		System.out.println(" Enter the string you want to search.... > > > ! \n ");

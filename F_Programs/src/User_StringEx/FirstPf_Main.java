@@ -7,6 +7,7 @@ public class FirstPf_Main {
 	public static void main(String[] args) {
 		//initializing variable
 		String template = "Hello <<UserName>>, How are you?";
+		System.out.println(template);
 		//taking input from user
 		System.out.println("Enter the string ....... "); 
 		String name=Utility1.getString();  

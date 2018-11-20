@@ -17,11 +17,9 @@ import Utility.Utility1;
 
 public class windchill_Main {
 	static {
-		System.out.println("Enter temperature<= 50 and Velocity =>3 and <=120");
+		System.out.println("Enter temperature<= 50 and Velocity >=>3 and <=120");
 	}
-	static {
-		System.out.println("Enter temperature<= 50 and Velocity =>3 and <=120");
-}
+
 
 	public static void main(String[] args) {
 		double t = Double.parseDouble(args[0]);
